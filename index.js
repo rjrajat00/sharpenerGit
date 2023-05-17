@@ -1,23 +1,36 @@
-console.log("hello this is sharpener");
+console.log("welcome to DOM Manipulations");
 
-const tag = document.getElementById("l3");
-tag.style.color = "blue";
+console.log(document.title);
+console.log(document.forms);
+console.log(document.head);
+console.log(document.body);
 
-const li = document.querySelector("li");
-li.style.background = "red";
+// getelementbyId------single element
 
-let btn = document.getElementById("btn");
-btn.addEventListener("click", (e) => {
-  console.log("button is clicked");
-});
+let h3 = document.getElementById("h3");
+h3.innerHTML = "<h2>Hello Sharpener</h2>";
+h3.style.color = "black";
+h3.style.backgroundColor = "yellow";
+h3.style.borderBottom = " solid 5px black";
 
-btn.addEventListener("mouseover", (e) => {
-  console.log("mouse is over");
-});
+console.log(h3);
 
-btn.addEventListener("mouseout", (e) => {
-  console.log("mouse is out!!!!");
-});
-btn.addEventListener("mousepointer", (e) => {
-  console.log("mouse pointer!!!!");
-});
+// getElementsByClassName-------elements
+
+let items = document.getElementsByClassName("list-group-item");
+items[0].style.color = "white";
+items[0].innerHTML = "<b>Orange</b>";
+items[1].style.color = "black";
+items[1].innerHTML = "<b>white</b>";
+items[2].style.color = "white";
+items[2].innerHTML = "green";
+items[3].style.color = "black";
+items[3].innerHTML = "<b>yellow</b>";
+items[4].style.color = "white";
+items[4].innerHTML = "<b>Silver</b>";
+
+items[1].style.backgroundColor = "white";
+items[3].style.backgroundColor = "yellow";
+items[4].style.backgroundColor = "silver";
+items[0].style.backgroundColor = "orange";
+items[2].style.backgroundColor = "green";
