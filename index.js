@@ -34,3 +34,10 @@ items[3].style.backgroundColor = "yellow";
 items[4].style.backgroundColor = "silver";
 items[0].style.backgroundColor = "orange";
 items[2].style.backgroundColor = "green";
+
+let item = document.getElementsByTagName("li");
+
+item[5].style.backgroundColor = "red";
+item[5].style.color = "white";
+item[5].style.border = "solid black 5px";
+item[5].innerHTML = "This is Modified using JS";
