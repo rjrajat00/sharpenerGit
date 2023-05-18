@@ -35,9 +35,29 @@ items[4].style.backgroundColor = "silver";
 items[0].style.backgroundColor = "orange";
 items[2].style.backgroundColor = "green";
 
+// getElementsByTagName--------------->>>>>>
 let item = document.getElementsByTagName("li");
 
 item[5].style.backgroundColor = "red";
 item[5].style.color = "white";
 item[5].style.border = "solid black 5px";
 item[5].innerHTML = "This is Modified using JS";
+
+//queryselector
+let query = document.querySelector("#l7");
+query.style.backgroundColor = "green";
+query.style.color = "white";
+query.style.fontFamily = "sans-serif";
+query.innerHTML =
+  "<b>Second item with green background and light green font color</b>";
+
+let invisible = document.querySelector("#l8");
+invisible.style.visibility = "hidden";
+
+//querySelectorAll
+let queryAll = document.querySelectorAll("li");
+
+queryAll[7].style.color = "#90EE90";
+queryAll[6].style.backgroundColor = "#90EE90";
+queryAll[8].style.backgroundColor = "#90EE90";
+queryAll[10].style.backgroundColor = "#90EE90";
