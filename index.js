@@ -1,9 +1,9 @@
 console.log("welcome to DOM Manipulations");
 
-console.log(document.title);
-console.log(document.forms);
-console.log(document.head);
-console.log(document.body);
+//console.log(document.title);
+//console.log(document.forms);
+//console.log(document.head);
+//console.log(document.body);
 
 // getelementbyId------single element
 
@@ -13,7 +13,7 @@ h3.style.color = "black";
 h3.style.backgroundColor = "yellow";
 h3.style.borderBottom = " solid 5px black";
 
-console.log(h3);
+//console.log(h3);
 
 // getElementsByClassName-------elements
 
@@ -61,3 +61,61 @@ queryAll[7].style.color = "#90EE90";
 queryAll[6].style.backgroundColor = "#90EE90";
 queryAll[8].style.backgroundColor = "#90EE90";
 queryAll[10].style.backgroundColor = "#90EE90";
+
+// Creating Nodes and Modifying DOMs
+// and traversing the DOMs
+
+//parentNode or parentElement, both are same and can be  used interchangeably
+let itemss = document.querySelector("#list1");
+//console.log(itemss.parentNode);
+itemss.parentNode.style.backgroundColor = "#f4f4f4";
+itemss.parentNode.style.fontFamily = "Times New Roman";
+
+let items2 = document.querySelector("#list2");
+items2.parentElement.style.backgroundColor = "aqua";
+
+//console.log(itemss.children);
+//console.log(items2.children);
+//console.log(items2.children[2]);
+items2.children[2].style.backgroundColor = "red";
+//console.log(items2.lastElementChild);
+//console.log(items2.lastChild);
+
+//console.log(items2.firstElementChild);
+
+//console.log(items2.nextSibling);
+//console.log(items2.previousSibling);
+
+//console.log(items2.previousElementSibling);
+
+//console.log(items2.nextElementSibling);
+
+//Creating an new element
+
+let list = document.createElement("list");
+list.className = "newList";
+list.id = "newList";
+list.setAttribute = ("value", "helloList");
+
+//Creating text node
+
+let addTxt = document.createTextNode("Hello World");
+
+// now adding the text node to the list element
+
+list.appendChild(addTxt);
+
+//console.log(list);
+
+// Adding hello  world in the header file
+
+let addElement = document.querySelector("body #contain");
+
+let h23 = document.querySelector("body h3");
+
+addElement.insertBefore(list, h3);
+addElement.style.color = "white";
+addElement.style.marginTop = "10px";
+addElement.style.backgroundColor = "Green";
+addElement.style.fontFamily = "sans-serif";
+addElement.style.fontSize = "30px";
