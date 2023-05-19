@@ -16,52 +16,33 @@
 
                 <img src="1667289399127.jpg" alt="Logo" width="40" height="34" class=" align-text-top">
             </a>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          
         </div>
+        <div class="col-md-6 align-self-center">
+          <input type="text" class="form-control me-2" id="filter" placeholder="Search Items...">
+      </div>
       </nav>
 
-      <div id="contain"   class="container">
-
-          <h3 id="h3" class="mt-3 mb-2  text-center">Text to be manipulated</h3>
-      </div>
-
-
-
-
-    <div class="container">
-
-        <ul  id="list1"  class="list-group align text-center mt-4">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
-            <br><br>
-            <li class="align text-center ">New List </li>
-        </ul>
-    </div>
-
- <br><br>
-
-<div class="container">
-
-    <ul id="list2" class="align text-lg-center">
-       <h4 class="mb-4" >Manipluations using querySelector and querySelectorAll</h4>
-    
-           <li id="l6" class="list-group-item">An item</li>
-           <li id="l7" class="list-group-item">A second item</li>
-           <li id="l8" class="list-group-item">A third item</li>
-           <li id="l9" class="list-group-item">A fourth item</li>
-           <li id="l10" class="list-group-item">A fifth item</li>
-    </ul>
+  </div>
 </div>
-
-
-
-    
+</header>
+<div class="container">
+<div id="main" class="card card-body">
+<h2 class="title">Add Items</h2>
+<form id="addForm" class="form-inline mb-3">
+  <input type="text" class="form-control me-2" id="item">
+  <input type="submit" class="btn btn-dark" value="Submit">
+</form>
+<h2 class="title">Items</h2>
+<ul id="items" class="list-group">
+  <li class="list-group-item">Item 1 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+  <li class="list-group-item">Item 2 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+  <li class="list-group-item">Item 3 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+  <li class="list-group-item">Item 4 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+</ul>
+</div>
+</div>
+   
 </body>
 <script src="index.js"></script>
 
