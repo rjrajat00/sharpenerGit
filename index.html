@@ -18,30 +18,37 @@
             </a>
           
         </div>
-        <div class="col-md-6 align-self-center">
-          <input type="text" class="form-control me-2" id="filter" placeholder="Search Items...">
-      </div>
+       
       </nav>
 
   </div>
 </div>
-</header>
-<div class="container">
-<div id="main" class="card card-body">
-<h2 class="title">Add Items</h2>
-<form id="addForm" class="form-inline mb-3">
-  <input type="text" class="form-control me-2" id="item">
-  <input type="submit" class="btn btn-dark" value="Submit">
-</form>
-<h2 class="title">Items</h2>
-<ul id="items" class="list-group">
-  <li class="list-group-item">Item 1 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
-  <li class="list-group-item">Item 2 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
-  <li class="list-group-item">Item 3 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
-  <li class="list-group-item">Item 4 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
-</ul>
-</div>
-</div>
+
+<form class="form-control " id="form">
+    <div class="mt-5 ">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="name" class="form-control" id="name" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mt-5 ">
+      <label for="exampleInputPhone" class="form-label">Contact Number</label>
+      <input type="number" class="form-control" id="number" aria-describedby="emailHelp">
+      
+    </div>
+    
+
+    <div class="mt-4">
+        <label for="meeting-time">Appointment Date and Time</label>
+
+      <input type="datetime-local" id="booking"
+       name="booking" value="2023-05-05T19:30"
+       min="2023-05-07T00:00" max="2030-06-14T00:00">
+
+    </div>
+
+    
+    <button type="submit" id="btn"   class="btn btn-primary mt-5">Submit</button>
+  </form>
    
 </body>
 <script src="index.js"></script>
