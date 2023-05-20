@@ -1,17 +1,19 @@
 const appointment = (e) => {
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const number = document.getElementById("number").value;
-  const booking = document.getElementById("booking").value;
+  const name = document.getElementById("name");
+  const number = document.getElementById("number");
+  const booking = document.getElementById("booking");
 
   let data = {
-    name: name,
-    number: number,
-    booking: booking,
+    name: name.value,
+    number: number.value,
+    booking: booking.value,
   };
 
   localStorage.setItem("data", JSON.stringify(data));
+
+  alert("User details submitted successfully!");
 };
 
 let form = document.getElementById("form");
