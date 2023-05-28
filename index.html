@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom Manipulations</title>
+    <title>Expense Tracker App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">Sharpener
+            <a class="navbar-brand">Expense Tracker
 
 
-                <img src="1667289399127.jpg" alt="Logo" width="40" height="34" class=" align-text-top">
+                <img src="png-transparent-freewallet-finance-budgetbakers-wallet-rectangle-personal-finance-logo-thumbnail.png" alt="Logo" width="40" height="34" class=" align-text-top">
             </a>
           
         </div>
@@ -26,28 +26,31 @@
 
 <form class="form-control d-sm-inline-block" id="form">
     <div class="mt-5 ">
-      <label for="exampleInputEmail1" class="form-label">Name</label>
-      <input type="name" class="form-control" id="name" aria-describedby="emailHelp">
+      <label for="expense" class="form-label">Expense Amount</label>
+      <input type="number" class="form-control" id="amount" >
       
     </div>
     <div class="mt-5 ">
-      <label for="exampleInputPhone" class="form-label">Contact Number</label>
-      <input type="number" class="form-control" id="number" aria-describedby="emailHelp">
+      <label for="desc" class="form-label">Description</label>
+      <input type="text" class="form-control" id="desc" >
       
     </div>
     
+    
 
     <div class="mt-4">
-        <label for="meeting-time">Appointment Date and Time</label>
+        <label class="mt-5" for="meeting-time">Spent On</label>
 
-      <input type="datetime-local" id="booking"
+      <input type="datetime-local" id="date"
        name="booking" value="2023-05-05T19:30"
        min="2023-05-07T00:00" max="2030-06-14T00:00">
 
     </div>
 
     
-    <button type="submit" id="btn"   class="btn btn-primary mt-5">Submit</button>
+
+    
+    <button type="submit" id="btn"   class="btn btn-primary mt-5">Add Data</button>
     
   </form>
    

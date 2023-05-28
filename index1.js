@@ -3,9 +3,9 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   // Extract data from the form
   const data = {
-    name: document.getElementById("name").value,
-    number: document.getElementById("number").value,
-    booking: document.getElementById("booking").value,
+    amount: document.getElementById("amount").value,
+    desc: document.getElementById("desc").value,
+    date: document.getElementById("date").value,
   };
 
   // Retrieve existing data from local storage
@@ -26,9 +26,9 @@ document.getElementById("form").addEventListener("submit", function (event) {
   updateDataList(existingData);
 
   // Clear the form inputs
-  document.getElementById("name").value = "";
-  document.getElementById("number").value = "";
-  document.getElementById("booking").value = "";
+  document.getElementById("amount").value = "";
+  document.getElementById("desc").value = "";
+  document.getElementById("date").value = "";
 
   alert("Data saved successfully!");
 });
@@ -44,15 +44,15 @@ function updateDataList(data) {
   data.forEach(function (item, index) {
     const listItem = document.createElement("li");
     listItem.textContent =
-      "Name: " +
-      item.name +
+      "Expense Amount: " +
+      item.amount +
       " " +
-      ", Contact: " +
-      item.number +
+      ", Description: " +
+      item.desc +
       " " +
-      "Booking Date: " +
+      "Date: " +
       " " +
-      item.booking +
+      item.date +
       "  ";
 
     const editButton = document.createElement("button");
@@ -90,9 +90,9 @@ function editData(index) {
   const data = existingData[index];
 
   // Update the form inputs with the data to be edited
-  document.getElementById("name").value = data.name;
-  document.getElementById("number").value = data.number;
-  document.getElementById("booking").value = data.booking;
+  document.getElementById("amount").value = data.amount;
+  document.getElementById("desc").value = data.desc;
+  document.getElementById("date").value = data.date;
 
   // Remove the data set from the existing data (optional)
   existingData.splice(index, 1);
