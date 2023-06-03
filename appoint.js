@@ -86,6 +86,8 @@ function updateDataList(data) {
 }
 
 // Function to edit data set at the specified index
+// Function to edit data set at the specified index
+// Function to edit data set at the specified index
 function editData(index) {
   // Retrieve existing data from local storage
   let existingData = localStorage.getItem("myData");
@@ -95,29 +97,59 @@ function editData(index) {
     return; // No data to edit
   }
 
-  // Retrieve the data set to be edited
-  const data = existingData[index];
+  // Retrieve the original data set to be edited
+  const originalData = existingData[index];
 
-  // Update the form inputs with the data to be edited
-  document.getElementById("name").value = data.name;
-  document.getElementById("number").value = data.number;
-  document.getElementById("booking").value = data.booking;
+  // Update the form inputs with the original data
+  document.getElementById("name").value = originalData.name;
+  document.getElementById("number").value = originalData.number;
+  document.getElementById("booking").value = originalData.booking;
 
-  // Remove the data set from the existing data (optional)
-  existingData.splice(index, 1);
+  // Add event listener to the form submit button for editing the data
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
 
-  // Store the updated data in local storage
-  localStorage.setItem("myData", JSON.stringify(existingData));
+    // Extract updated data from the form
+    const updatedData = {
+      name: document.getElementById("name").value,
+      number: document.getElementById("number").value,
+      booking: document.getElementById("booking").value,
+    };
 
-  // Update the page content
-  updateDataList(existingData);
+    // Update the existing data at the specified index
+    existingData[index] = updatedData;
+
+    // Update the data in CRUD CRUD
+    axios
+      .put(
+        `https://crudcrud.com/api/ab828b687b6242d793c87c8192f1a0b2/appoint/${originalData._id}`,
+        updatedData
+      )
+      .then((response) => {
+        console.log(response);
+        // Data successfully updated in CRUD CRUD
+
+        // Store the updated data in local storage
+        localStorage.setItem("myData", JSON.stringify(existingData));
+
+        // Update the page content
+        updateDataList(existingData);
+
+        // Clear the form inputs
+        document.getElementById("name").value = "";
+        document.getElementById("number").value = "";
+        document.getElementById("booking").value = "";
+
+        alert("Data updated successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+        // Error occurred during update
+        alert("Failed to update data. Please try again.");
+      });
+  });
 }
 
-// Function to delete data set at the specified index
-// ...
-
-// Function to delete data set at the specified index
-// Function to delete data set at the specified index
 // Function to delete data set at the specified index
 function deleteData(index, itemId) {
   // Retrieve existing data from local storage
@@ -173,8 +205,3 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(err);
     });
 });
-
-let del = document.getElementById("del");
-del.style.color = "red";
-del.style.cursor = "pointer";
-del.style.fontSize = "16px";
