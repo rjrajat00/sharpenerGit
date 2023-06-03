@@ -128,14 +128,15 @@ function deleteData(index) {
   } else {
     return; // No data to delete
   }
-
-  // Remove the data set at the specified index
+  existingData.splice(index, 1);
 
   // Store the updated data in local storage
   localStorage.setItem("myData", JSON.stringify(existingData));
 
   // Update the page content
   updateDataList(existingData);
+
+  // Remove the data set at the specified index
 }
 
 // ...
@@ -146,4 +147,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const parsedData = JSON.parse(existingData);
     updateDataList(parsedData);
   }
+
+  axios
+    .get("https://crudcrud.com/api/ab828b687b6242d793c87c8192f1a0b2/appoint")
+    .then((res) => {
+      console.log(res);
+
+      const userData = res.data;
+      updateDataList(userData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
