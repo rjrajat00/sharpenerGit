@@ -46,6 +46,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
 });
 
 // Function to update the data list on the page
+// Function to update the data list on the page
 function updateDataList(data) {
   const dataList = document.getElementById("dataList");
 
@@ -58,14 +59,10 @@ function updateDataList(data) {
     listItem.textContent =
       "Name: " +
       item.name +
-      " " +
       ", Contact: " +
       item.number +
-      " " +
-      "Booking Date: " +
-      " " +
-      item.booking +
-      "  ";
+      ", Booking Date: " +
+      item.booking;
 
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
@@ -75,11 +72,11 @@ function updateDataList(data) {
     });
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.style.backgroundColor = "red";
-    deleteButton.style.marginLeft = "10px";
+    deleteButton.innerHTML = "&#10006;"; // Delete icon (cross symbol)
+    deleteButton.className = "delete-icon";
+    deleteButton.id = "del";
     deleteButton.addEventListener("click", function () {
-      deleteData(index);
+      deleteData(index, item._id); // Pass the item ID to the delete function
     });
 
     listItem.appendChild(editButton);
@@ -120,7 +117,9 @@ function editData(index) {
 // ...
 
 // Function to delete data set at the specified index
-function deleteData(index) {
+// Function to delete data set at the specified index
+// Function to delete data set at the specified index
+function deleteData(index, itemId) {
   // Retrieve existing data from local storage
   let existingData = localStorage.getItem("myData");
   if (existingData) {
@@ -128,15 +127,29 @@ function deleteData(index) {
   } else {
     return; // No data to delete
   }
-  existingData.splice(index, 1);
 
-  // Store the updated data in local storage
-  localStorage.setItem("myData", JSON.stringify(existingData));
+  // Delete the data item from Crud Crud
+  axios
+    .delete(
+      `https://crudcrud.com/api/ab828b687b6242d793c87c8192f1a0b2/appoint/${itemId}`
+    )
+    .then((response) => {
+      console.log(response);
+      // Data successfully deleted from Crud Crud
 
-  // Update the page content
-  updateDataList(existingData);
+      // Remove the data set at the specified index
+      existingData.splice(index, 1);
 
-  // Remove the data set at the specified index
+      // Store the updated data in local storage
+      localStorage.setItem("myData", JSON.stringify(existingData));
+
+      // Update the page content
+      updateDataList(existingData);
+    })
+    .catch((error) => {
+      console.log(error);
+      // Error occurred during deletion
+    });
 }
 
 // ...
@@ -160,3 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(err);
     });
 });
+
+let del = document.getElementById("del");
+del.style.color = "red";
+del.style.cursor = "pointer";
+del.style.fontSize = "16px";
