@@ -60,7 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("btn", "btn-danger", "delete-btn");
+
     listItem.appendChild(deleteBtn);
+
+    axios
+      .delete("https://api.instantwebtools.net/v1/airlines")
+      .then((res) => {
+        showOutput(res);
+
+        const userData = res.data;
+        updateDataList(userData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     return listItem;
   }
@@ -71,5 +84,17 @@ document.addEventListener("DOMContentLoaded", function () {
     checkbox.remove();
 
     return doneItem;
+
+    axios
+      .post("https://api.instantwebtools.net/v1/airlines")
+      .then((res) => {
+        console.log(res);
+
+        const userData = res.data;
+        updateDataList(userData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 });
